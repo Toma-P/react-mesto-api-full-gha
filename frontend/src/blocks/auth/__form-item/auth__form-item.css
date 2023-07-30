@@ -1,0 +1,39 @@
+.auth__form-item {
+  max-width: 358px;
+  width: 100%;
+  min-height: 27px;
+  margin: 0 0 30px;
+  border: none;
+  border-bottom: 2px solid #CCCCCC;
+  padding: 0 0 13px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+  background-color: transparent;
+}
+
+.auth__form-item::-webkit-input-placeholder {
+  color: #CCCCCC;
+}
+
+.auth__form-item::-moz-placeholder {
+  color: #CCCCCC;
+}
+
+.auth__form-item::-ms-input-placeholder {
+  color: #CCCCCC;
+}
+
+.auth__form-item::placeholder {
+  color: #CCCCCC;
+}
+
+.auth__form-item:focus {
+  border: none;
+  outline-offset: 5px;
+  outline-color: rgba(255, 255, 255, 0.5);
+}

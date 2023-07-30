@@ -1,0 +1,18 @@
+.card {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-template-rows: min-content;
+  align-items: center;
+  column-gap: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+@media screen and (max-width: 680px) {
+  .card {
+    width: 282px;
+    height: 361px;
+  }
+}

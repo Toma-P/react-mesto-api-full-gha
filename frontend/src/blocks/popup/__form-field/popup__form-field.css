@@ -1,0 +1,7 @@
+.popup__form-field {
+  margin-top: 6px;
+}
+.popup__form-field:first-child {
+  margin-top: 0;
+}
+  

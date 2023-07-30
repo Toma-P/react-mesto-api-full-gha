@@ -1,0 +1,46 @@
+.profile {
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 40px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  .profile {
+    max-width: 1024px;
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .profile {
+    max-width: 800px;
+    padding-left: 5.93%;
+    padding-right: 5.93%;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .profile {
+    max-width: 680px;
+    flex-wrap: wrap;
+    padding-left: 5.93%;
+    padding-right: 5.93%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+  .profile {
+    max-width: 520px;
+    padding: 42px 19px 0;
+    flex-direction: column;
+    gap: 0;
+  }
+}

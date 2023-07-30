@@ -1,0 +1,40 @@
+.footer {
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 66px 0 60px;
+  color: #545454;
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    max-width: 1024px;
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .footer {
+    max-width: 800px;
+    padding-left: 5.93%;
+    padding-right: 5.93%;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .footer {
+    max-width: 680px;
+    padding-top: 48px;
+    padding-bottom: 36px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .footer {
+    max-width: 520px;
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}
