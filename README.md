@@ -7,8 +7,8 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.64.244 \
+IP-адрес 51.250.64.244 
 
-Frontend https://tomiko.students.nomoreparties.co \
+Frontend https://tomiko.students.nomoreparties.co 
 
-Backend https://api.tomiko.students.nomoreparties.co \
+Backend https://api.tomiko.students.nomoreparties.co 
