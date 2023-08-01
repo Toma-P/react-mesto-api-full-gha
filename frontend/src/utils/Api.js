@@ -1,6 +1,7 @@
 class Api {
   constructor(data) {
     this._baseUrl = data.baseUrl;
+    //this._headers = data.headers;
   }
   
   _checkResult(res) {
@@ -93,5 +94,5 @@ class Api {
 }
   
   export const api = new Api({
-    baseUrl: 'https://api.tomiko.students.nomoreparties.co',
+    baseUrl: 'http://localhost:3000',
   });

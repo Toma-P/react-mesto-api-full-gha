@@ -1,5 +1,5 @@
-require('dotenv').config();
 const express = require('express');
+require('dotenv').config();
 
 const app = express();
 const helmet = require('helmet');
@@ -13,14 +13,17 @@ const error = require('./middlewares/error');
 const { userInfoValidation, authInfoValidation } = require('./middlewares/validation');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
+const { PORT, DB_URL } = process.env;
 const allowedCors = [
   'https://tomiko.students.nomoreparties.co',
   'http://localhost:3001',
 ];
 
-const { PORT, DB_URL } = process.env;
-
 app.use(express.json());
+app.use(helmet());
+mongoose.connect(DB_URL);
+
+app.use(rateLimits({ windowMS: 60000, max: 100, message: 'Превышен лимит запросов' }));
 app.use((req, res, next) => {
   const { origin } = req.headers;
   const { method } = req;
@@ -32,15 +35,10 @@ app.use((req, res, next) => {
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
     res.header('Access-Control-Allow-Headers', requestHeaders);
-    res.end();
+    return res.end();
   }
-  next();
+  return next();
 });
-app.use(helmet());
-mongoose.connect(DB_URL);
-
-app.use(rateLimits({ windowMS: 60000, max: 100, message: 'Превышен лимит запросов' }));
-
 app.use(requestLogger);
 app.get('/crash-test', () => {
   setTimeout(() => {
