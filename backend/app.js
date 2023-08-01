@@ -15,6 +15,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT, DB_URL } = process.env;
 const allowedCors = [
+  'https://api.tomiko.students.nomoreparties.co',
   'https://tomiko.students.nomoreparties.co',
   'http://localhost:3001',
 ];
