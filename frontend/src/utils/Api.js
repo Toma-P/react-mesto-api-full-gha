@@ -1,7 +1,6 @@
 class Api {
   constructor(data) {
     this._baseUrl = data.baseUrl;
-    //this._headers = data.headers;
   }
   
   _checkResult(res) {
@@ -94,9 +93,5 @@ class Api {
 }
   
   export const api = new Api({
-    baseUrl: 'http://localhost:3000',
-    //headers: {
-      //authorization: '81ba81f8-d4d6-4c17-8392-af27639852f7',
-     // 'Content-Type': 'application/json'
-    //}
+    baseUrl: 'https://api.tomiko.students.nomoreparties.co',
   });
