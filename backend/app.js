@@ -1,11 +1,12 @@
-const express = require('express');
 require('dotenv').config();
+const express = require('express');
 
 const app = express();
 const helmet = require('helmet');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const rateLimits = require('express-rate-limit');
+const cors = require('cors');
 const router = require('./routes/index');
 const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
@@ -14,31 +15,14 @@ const { userInfoValidation, authInfoValidation } = require('./middlewares/valida
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT, DB_URL } = process.env;
-const allowedCors = [
-  'https://tomiko.students.nomoreparties.co',
-  'http://localhost:3001',
-];
 
 app.use(express.json());
+app.use(cors());
 app.use(helmet());
 mongoose.connect(DB_URL);
 
 app.use(rateLimits({ windowMS: 60000, max: 100, message: 'Превышен лимит запросов' }));
-app.use((req, res, next) => {
-  const { origin } = req.headers;
-  const { method } = req;
-  const requestHeaders = req.headers['access-control-request-headers'];
-  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-  if (method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    res.header('Access-Control-Allow-Headers', requestHeaders);
-    return res.end();
-  }
-  return next();
-});
+
 app.use(requestLogger);
 app.get('/crash-test', () => {
   setTimeout(() => {
