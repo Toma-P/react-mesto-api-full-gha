@@ -7,7 +7,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.64.244 
+IP-адрес 158.160.109.191 
 
 Frontend https://tomiko.students.nomoreparties.co 
 
