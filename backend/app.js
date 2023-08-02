@@ -13,7 +13,7 @@ const error = require('./middlewares/error');
 const { userInfoValidation, authInfoValidation } = require('./middlewares/validation');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 // const allowedCors = [
 //  'https://api.tomiko.students.nomoreparties.co',
 //  'https://tomiko.students.nomoreparties.co',
