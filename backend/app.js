@@ -14,11 +14,11 @@ const { userInfoValidation, authInfoValidation } = require('./middlewares/valida
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
-//const allowedCors = [
+// const allowedCors = [
 //  'https://api.tomiko.students.nomoreparties.co',
 //  'https://tomiko.students.nomoreparties.co',
 //  'http://localhost:3001',
-//];
+// ];
 
 app.use(express.json());
 app.use(helmet());
@@ -26,13 +26,13 @@ mongoose.connect(DB_URL);
 
 app.use(rateLimits({ windowMS: 60000, max: 100, message: 'Превышен лимит запросов' }));
 app.use((req, res, next) => {
-  //const { origin } = req.headers;
+  // const { origin } = req.headers;
   const { method } = req;
   const requestHeaders = req.headers['access-control-request-headers'];
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-  //if (allowedCors.includes(origin)) {
+  // if (allowedCors.includes(origin)) {
   //  res.header('Access-Control-Allow-Origin', origin);
-  //}
+  // }
   res.header('Access-Control-Allow-Origin', '*');
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
