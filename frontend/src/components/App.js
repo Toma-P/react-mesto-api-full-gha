@@ -39,7 +39,7 @@ function App() {
     if(token) {
       checkToken(token)
         .then((res) => {
-          setUserEmail(res.data.email);
+          setUserEmail(res.email);
           setLoggedIn(true);
          // setIsChecking(false);
           navigate("/");
@@ -168,6 +168,7 @@ function App() {
       })
       .catch((err) => {
         console.log("Ошибка страницы:", err);
+        setIsTooltipPopupOpen(true);
       })
   }
 

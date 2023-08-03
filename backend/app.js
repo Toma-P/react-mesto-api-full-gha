@@ -24,7 +24,6 @@ app.use(express.json());
 app.use(helmet());
 mongoose.connect(DB_URL);
 
-app.use(rateLimits({ windowMS: 60000, max: 100, message: 'Превышен лимит запросов' }));
 app.use((req, res, next) => {
   // const { origin } = req.headers;
   const { method } = req;
@@ -42,6 +41,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use(requestLogger);
+app.use(rateLimits({ windowMS: 60000, max: 100, message: 'Превышен лимит запросов' }));
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
